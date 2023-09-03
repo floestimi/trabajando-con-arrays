@@ -37,6 +37,21 @@ function showList(array) {
 }
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  // Escribe tu solución aquí
-  // Sugerencia de cómo mostrar el array => showList(strangeArray);
+  //crea el array de strings
+  function nuevoArrayDeStrings(){
+    return strangeArray.filter((element) => typeof element == "string");
+  }
+
+  //ordena el array alfabéticamente
+  function ordenarArrayAlfabeticamente(){
+    let array = nuevoArrayDeStrings();
+    let arrayNuevo = array.sort((a, b) =>{
+      return a.localeCompare(b, undefined, {sensitivity: 'base'})
+    });
+    return arrayNuevo;
+  }
+
+  let arrayDeStrings = ordenarArrayAlfabeticamente();
+
+  showList(arrayDeStrings); 
 });
